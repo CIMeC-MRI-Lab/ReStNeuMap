@@ -5,21 +5,21 @@ Zaca D [1], Jovicich J [1], Corsini F [2], Rozzanigo U [3], Chioffi F [2], Sarub
 
 Journal of Neurosurgery (2018)
 
-[1] Center for Mind/Brain Sciences, University of Trento, Via delle Regole 101, 38123 Trento (Italy)
-[2] Division of Neurosurgery, Structural and Functional Connectivity Lab Project, S. Chiara Hospital, Trento APSS, 38122 Trento (Italy)
-[3] Department of Radiology, Neuroradiology Unit, S. Chiara Hospital, Trento APSS, 38122 Trento (Italy)
+[1] Center for Mind/Brain Sciences, University of Trento, Via delle Regole 101, 38123 Trento (Italy) </br>
+[2] Division of Neurosurgery, Structural and Functional Connectivity Lab Project, S. Chiara Hospital, Trento APSS, 38122 Trento (Italy)
+[3] Department of Radiology, Neuroradiology Unit, S. Chiara Hospital, Trento APSS, 38122 Trento (Italy)
 
 ## 
 
 
-1. **OVERVIEW**
-	1.1. Credits
-	1.2. Disclaimer
-	1.3. Tool structure
+1. **OVERVIEW**</br>
+	1.1. Credits</br>
+	1.2. Disclaimer</br>
+	1.3. Tool structure</br>
 
-2. **INSTALLATION**
-	2.1. Requirements
-	2.2. Install
+2. **INSTALLATION**</br>
+	2.1. Requirements</br>
+	2.2. Install</br>
 
 3. **SAMPLE DATASET**
 
@@ -44,7 +44,7 @@ Our software uses and also provides functions from the following freely availabl
 
 
 ### 1.2 Disclaimer
-This software is made available to facilitate and promote use of resting-state fMRI data for research. This software is supplied as is. No formal quality assurance checks were made on the software other than those described in the original publication (ZacÃ  et al., JNS, 2018), and no formal support or maintenance is provided or implied. 
+This software is made available to facilitate and promote use of resting-state fMRI data for research. This software is supplied as is. No formal quality assurance checks were made on the software other than those described in the original publication (Zacà  et al., JNS, 2018), and no formal support or maintenance is provided or implied. 
 
 ### 1.3 Tool Structure
 This tool reads two input datasets (anatomical T1 MRI and resting state fMRI, both in dicom format) and computes the visual, motor and language resting state networks, together with quality assurance metrics of the input data. For more details see Zacà et al., J. Neurosurg. 2018.
@@ -65,12 +65,12 @@ ReStNeuMap has been tested for the following Operating Systems:
 
 ### 2.1 Requirements
 - At least 4GB free space
-- Software to install in addition to the code and files we provide:
--- Matlab R2017b (https://www.mathworks.com/products/matlab.html), with at least the following toolboxes:
---- Image Processing Toolbox
---- Statistics and Machine Learning Toolbox
--- SPM12: http://www.fil.ion.ucl.ac.uk/spm/software/spm12/
--- FSL 5.0.9 or 5.0.11: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki
+- Software to install in addition to the code and files we provide:</br>
+-- Matlab R2017b (https://www.mathworks.com/products/matlab.html), with at least the following toolboxes:</br>
+--- Image Processing Toolbox</br>
+--- Statistics and Machine Learning Toolbox</br>
+-- SPM12: http://www.fil.ion.ucl.ac.uk/spm/software/spm12/</br>
+-- FSL 5.0.9 or 5.0.11: https://fsl.fmrib.ox.ac.uk/fsl/fslwiki</br>
 
 ### 2.2. Install
 To install ReStNeuMap please follow the following steps:
@@ -93,14 +93,14 @@ The sample dataset includes
  - a ReStNeuMap.pdf tutorial file
 
 In more details, you can find:
-- the (your path)/ReStNeuMap_v0.1/Sample_data/Sample_input folder containing the following folders: 
-	-- anatomy_dicom, containing sample anatomical dicom
-	-- rsfmri_dicom, containing sample resting-state dicom
+- the (your path)/ReStNeuMap_v0.1/Sample_data/Sample_input folder containing the following folders: </br>
+	-- anatomy_dicom, containing sample anatomical dicom</br>
+	-- rsfmri_dicom, containing sample resting-state dicom</br>
 
-- the (your path)/ReStNeuMap_v0.1/Sample_data/Sample_output folder containing the following folders:
-	-- QualityAssuranceMetrics, containing quality assurance metrics files computed by ReStNeuMap;
-	-- ProcessDir, containing sample patient's resting-state networks and other files described in more detail in ReStNeuMap tutorial; 
-	-- ReStNeuMapv0.1_log.txt, a sample log containing system hardware and OS info for debugging purposes.
+- the (your path)/ReStNeuMap_v0.1/Sample_data/Sample_output folder containing the following folders:</br>
+	-- QualityAssuranceMetrics, containing quality assurance metrics files computed by ReStNeuMap;</br>
+	-- ProcessDir, containing sample patient's resting-state networks and other files described in more detail in ReStNeuMap tutorial; </br>
+	-- ReStNeuMapv0.1_log.txt, a sample log containing system hardware and OS info for debugging purposes.</br>
  
  ## 4. LICENSE
  ReStNeuMap is free software, distributed under the terms of the GNU General Public Licence as published by the Free Software Foundation. Further details on "copyleft" can be found at http://www.gnu.org/copyleft/.
@@ -108,5 +108,5 @@ In more details, you can find:
 ## 5. ACKNOWLEDGMENTS
 We would like to acknowledge Lisa Novello for help in developing, documenting and testing this software as well as Pietro Astolfi, Giuliano Giari, Vittorio Iacovella, Philipp Schwedhelm, Davide Tabarelli, and Yangwen Xu for their help on final testing. 
 
-This work was supported by the CARITRO FOUNDATION within the "Bando 2015 per progetti di  ricerca scientifica svolti da giovani ricercatori" (University of Trento, Trento, Italy). 
+This work was supported by the CARITRO FOUNDATION within the "Bando 2015 per progetti di  ricerca scientifica svolti da giovani ricercatori" (University of Trento, Trento, Italy). 
 
