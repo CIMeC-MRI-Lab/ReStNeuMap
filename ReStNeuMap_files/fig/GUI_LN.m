@@ -237,21 +237,29 @@ else
         msgend = handles.text13runningstat;
     
         %once everything is set, create logfile and run ReStNeuMap core scripts!
-        statusLog0 = system(['echo "ReStNeuMap_v0.1 processing started on:" >> ', atldir,'/ReStNeuMapv0.1_log.txt']);
-        statusLog0date = system(['date >> ', atldir,'/ReStNeuMapv0.1_log.txt']);
-        statusLog0space =  system(['echo " " >> ', atldir,'/ReStNeuMapv0.1_log.txt']);
+        statusLog0 = system(['echo "ReStNeuMap_v0.2 processing started on:" >> ', atldir,'/ReStNeuMapv0.2_log.txt']);
+        statusLog0date = system(['date >> ', atldir,'/ReStNeuMapv0.2_log.txt']);
+        statusLog0space =  system(['echo " " >> ', atldir,'/ReStNeuMapv0.2_log.txt']);
         statusLogs0 = [statusLog0 statusLog0date statusLog0space];
         if any(statusLogs0)
             disp(' ');
             disp('an error occurred writing ReStNeuMap''s logfile');
         end
         
-        ReStNeuMap_PreProc_main(handles.text6.String, handles.text12.String)
+        exitstatus = ReStNeuMap_PreProc_main(handles.text6.String, handles.text12.String)
         fwaitb = waitbar(0.6,'ReStNeuMap is processing your data. Please wait...');
         waitbar(0.7,fwaitb);
         fromAtlastoSubj_aut_job(atldir)
         waitbar(0.8,fwaitb);
-        extractcomponent_auto
+        extractcomponent_auto_0_1_4(exitstatus)
+        % fix 2019-03-05
+%         statusMkdir0 = system('mkdir 2T1w');
+%         if statusMkdir0
+%             close all
+%             msgstatusMkdir0 = 'an error occurred while creating the 2T1w folder.';
+%             error(msgstatusMkdir0)
+%         end
+%         reorient_reslice_ReStNeuMapnetworks(pwd)
         waitbar(0.9,fwaitb);
     
         %set up folder structure with output files
@@ -261,12 +269,14 @@ else
         statusMv1 = system('mv artglobal*.jpg ./QualityAssuranceMetrics');
         statusMv2 = system('mv art_repaired.txt ./QualityAssuranceMetrics');
         statusMv3 = system('mv art_deweighted.txt ./QualityAssuranceMetrics');
+        statusMv4 = system('mv checkreg_output.png ./QualityAssuranceMetrics');
         statusesQAM = [statusMkdir, statusMv1, statusMv2, statusMv3];
         if any(statusesQAM)
             close all
             msgstatusQAM = 'an error occurred creating the QualityAssuranceMetrics folder or moving ArtRepair output files into it.';
             error(msgstatusQAM)
         end
+        
         
         %if the user checked the Optional Files box, then do not delete
         %temporary files and move it to the TemporaryFiles folder
@@ -333,30 +343,30 @@ else
         cd ..
    
         %fill in log containing info about hardware, OS, and running time
-        logpath = which('ReStNeuMapv0.1_log.txt');
+        logpath = which('ReStNeuMapv0.2_log.txt');
         statusMvLog = system(['mv ',logpath,' .']);
         if statusMvLog
             disp(' ');
             disp('an error occurred moving ReStNeuMap''s logfile');
         end
         if ~ismac
-            statusLog1 = system('echo "ReStNeuMap v0.1 log:" >> ReStNeuMapv0.1_log.txt');
-            statusLog2 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog3 = system('echo "CPU INFO:" >> ReStNeuMapv0.1_log.txt');
-            statusLog4 = system('lscpu >> ReStNeuMapv0.1_log.txt');
-            statusLog5 = system('echo " ">>  ReStNeuMapv0.1_log.txt');
-            statusLog6 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog7 = system('echo "RAM INFO:" >> ReStNeuMapv0.1_log.txt');
-            statusLog8 = system('cat /proc/meminfo >> ReStNeuMapv0.1_log.txt');
-            statusLog9 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog10 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog11 = system('echo "OS INFO:" >> ReStNeuMapv0.1_log.txt');
-            statusLog12 = system('lsb_release -a >> ReStNeuMapv0.1_log.txt');
-            statusLog13 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog14 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog15 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog16 = system('echo "processing ended on:" >> ReStNeuMapv0.1_log.txt');
-            statusLog17 = system('date >> ReStNeuMapv0.1_log.txt');
+            statusLog1 = system('echo "ReStNeuMap v0.2 log:" >> ReStNeuMapv0.2_log.txt');
+            statusLog2 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog3 = system('echo "CPU INFO:" >> ReStNeuMapv0.2_log.txt');
+            statusLog4 = system('lscpu >> ReStNeuMapv0.2_log.txt');
+            statusLog5 = system('echo " ">>  ReStNeuMapv0.2_log.txt');
+            statusLog6 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog7 = system('echo "RAM INFO:" >> ReStNeuMapv0.2_log.txt');
+            statusLog8 = system('cat /proc/meminfo >> ReStNeuMapv0.2_log.txt');
+            statusLog9 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog10 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog11 = system('echo "OS INFO:" >> ReStNeuMapv0.2_log.txt');
+            statusLog12 = system('lsb_release -a >> ReStNeuMapv0.2_log.txt');
+            statusLog13 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog14 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog15 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog16 = system('echo "processing ended on:" >> ReStNeuMapv0.2_log.txt');
+            statusLog17 = system('date >> ReStNeuMapv0.2_log.txt');
      
             statusLogs = [statusLog1 statusLog2 statusLog3 statusLog4 statusLog5 statusLog6 statusLog7 ...
                 statusLog8 statusLog9 statusLog10 statusLog11 statusLog12 statusLog13 statusLog14 statusLog15 ...
@@ -368,23 +378,23 @@ else
         end
     
         if ismac 
-            statusLog1 = system('echo "ReStNeuMap v0.1 log:" >> ReStNeuMapv0.1_log.txt');
-            statusLog2 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog3 = system('echo "CPU INFO:" >> ReStNeuMapv0.1_log.txt');
-            statusLog4 = system('sysctl -n machdep.cpu.brand_string >> ReStNeuMapv0.1_log.txt');
-            statusLog5 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog6 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog7 = system('echo "RAM INFO:" >> ReStNeuMapv0.1_log.txt');
-            statusLog8 = system('sysctl hw.memsize >> ReStNeuMapv0.1_log.txt');
-            statusLog9 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog10 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog11 = system('echo "OS INFO:" >> ReStNeuMapv0.1_log.txt');
-            statusLog12 = system('sw_vers >>  ReStNeuMapv0.1_log.txt');
-            statusLog13 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog14 = system('echo "---------------------" >> ReStNeuMapv0.1_log.txt');
-            statusLog15 = system('echo " " >> ReStNeuMapv0.1_log.txt');
-            statusLog16 = system('echo "processing ended on:" >> ReStNeuMapv0.1_log.txt');
-            statusLog17 = system('date >> ReStNeuMapv0.1_log.txt');
+            statusLog1 = system('echo "ReStNeuMap v0.2 log:" >> ReStNeuMapv0.2_log.txt');
+            statusLog2 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog3 = system('echo "CPU INFO:" >> ReStNeuMapv0.2_log.txt');
+            statusLog4 = system('sysctl -n machdep.cpu.brand_string >> ReStNeuMapv0.2_log.txt');
+            statusLog5 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog6 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog7 = system('echo "RAM INFO:" >> ReStNeuMapv0.2_log.txt');
+            statusLog8 = system('sysctl hw.memsize >> ReStNeuMapv0.2_log.txt');
+            statusLog9 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog10 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog11 = system('echo "OS INFO:" >> ReStNeuMapv0.2_log.txt');
+            statusLog12 = system('sw_vers >>  ReStNeuMapv0.2_log.txt');
+            statusLog13 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog14 = system('echo "---------------------" >> ReStNeuMapv0.2_log.txt');
+            statusLog15 = system('echo " " >> ReStNeuMapv0.2_log.txt');
+            statusLog16 = system('echo "processing ended on:" >> ReStNeuMapv0.2_log.txt');
+            statusLog17 = system('date >> ReStNeuMapv0.2_log.txt');
         
             statusLogs = [statusLog1 statusLog2 statusLog3 statusLog4 statusLog5 statusLog6 statusLog7 ...
                 statusLog8 statusLog9 statusLog10 statusLog11 statusLog12 statusLog13 statusLog14 statusLog15 ...
@@ -399,13 +409,37 @@ else
         disp(' ');
         disp('=================================================');
         disp(' ');
-        disp(['ReStNeuMap v0.1 has ended on ', datestr(now)]);
+        disp(['ReStNeuMap v0.2 has ended on ', datestr(now)]);
         disp(' ');
         disp('=================================================');
         mycurrdir = pwd;
         close(fwaitb)
-        msgpopup = msgbox(['ReStNeuMap processing ended. You can find ReStNeuMap output files and folders within the ',mycurrdir,' folder'], 'Operation completed');
-    
+        
+        exitstatusmessage = '';
+        if exitstatus.comp10 == false
+            msgcomp10 = [' with possible non-convergence of melodic for 10 components'];
+            exitstatusmessage = [exitstatusmessage, msgcomp10];
+        end
+        if exitstatus.comp20 == false
+            msgcomp20 = [' with possible non-convergence of melodic for 20 components'];
+            exitstatusmessage = [exitstatusmessage, msgcomp20];
+        end
+        if exitstatus.comp30 == false
+            msgcomp30 = [' with possible non-convergence of melodic for 30 components'];
+            exitstatusmessage = [exitstatusmessage, msgcomp30];
+        end
+        if exitstatus.compinf == false
+            msgcompinf = [' with possible non-convergence of melodic for FSL-determined number of components'];
+            exitstatusmessage = [exitstatusmessage, msgcompinf];
+        end
+            
+   
+        msgpopup = msgbox(['ReStNeuMap processing ended',exitstatusmessage,'. You can find ReStNeuMap output files and folders within the ',mycurrdir,' folder'], 'Operation completed');
+        
+        
+        
+                
+                
     catch ME
         msgcatch = 'an error occurred in ReStNeuMap processing. \n Please verify that your matlab path and input folders are correctly set.';
         close all

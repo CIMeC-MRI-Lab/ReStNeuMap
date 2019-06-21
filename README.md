@@ -1,4 +1,4 @@
-# ReStNeuMap v0.1
+# ReStNeuMap v0.2
 **ReStNeuMap: a tool for automatic extraction of resting state fMRI networks in neurosurgical practice.**
 
 Zaca D [1], Jovicich J [1], Corsini F [2], Rozzanigo U [3], Chioffi F [2], Sarubbo S [2]; 
@@ -93,11 +93,11 @@ The sample dataset includes
  - a ReStNeuMap.pdf tutorial file
 
 In more details, you can find:
-- the (your path)/ReStNeuMap_v0.1/Sample_data/Sample_input folder containing the following folders: </br>
+- the (your path)/ReStNeuMap_v0.2/Sample_data/Sample_input folder containing the following folders: </br>
 	-- anatomy_dicom, containing sample anatomical dicom</br>
 	-- rsfmri_dicom, containing sample resting-state dicom</br>
 
-- the (your path)/ReStNeuMap_v0.1/Sample_data/Sample_output folder containing the following folders:</br>
+- the (your path)/ReStNeuMap_v0.2/Sample_data/Sample_output folder containing the following folders:</br>
 	-- QualityAssuranceMetrics, containing quality assurance metrics files computed by ReStNeuMap;</br>
 	-- ProcessDir, containing sample patient's resting-state networks and other files described in more detail in ReStNeuMap tutorial; </br>
 	-- ReStNeuMapv0.1_log.txt, a sample log containing system hardware and OS info for debugging purposes.</br>

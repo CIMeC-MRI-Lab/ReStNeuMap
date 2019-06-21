@@ -1,4 +1,4 @@
-function [] = batch_preproc(input1, input2)
+    function [exitstatus] = ReStNeuMap_PreProc_main(input1, input2)
 clearvars -except input1 input2
 %clear all;
 nullmessage = '(no folder selected)';
@@ -152,7 +152,7 @@ dirlist=dir;
 dirlist(1:2)=[];
 dirFlags = ~[dirlist.isdir];
 files=dirlist(dirFlags);
-
+    
 if exist('rawdata','dir') == 0
     mkdir 'rawdata'
 end
@@ -186,7 +186,7 @@ elseif exist('ProcessDir','dir') == 7
     ' been detected. \n A possible reason for this is that ReStNeuMap''s ' ...
     'Sample_output folder \n is in your matlab path (e.g. instead of adding ' ...
     'to path the ReStNeuMap_files folder, \n you added to path with subfolders the '...
-    'ReStNeuMap_v0.1 folder: \n by doing so you included the ProcessDir folder '...
+    'ReStNeuMap_v0.1.1 folder: \n by doing so you included the ProcessDir folder '...
     'within the Sample_output one). \n \n Please remove from path other instances of '...
     'ProcessDir and \n remove all files generated so far by ReStNeuMap. \n '...
     'In other words, please return to the initial file structure \n before '...
@@ -290,7 +290,7 @@ fwaitb = waitbar(0.4,'ReStNeuMap is processing your data. Please wait...');
 % end
 
 spm_check_registration(strcat(filesT1.name,',1'),'4D_00001.nii,1');
-
+saveas(gcf,'checkreg_output.png')
 
 cd ProcessDir 
 
@@ -304,11 +304,61 @@ fprintf(fid_fslstats,[fileparts(atldir),'/pipelinefiles/ReStNeuMap_fslstatsrun.s
 fclose(fid_fslstats);
 melodicstatus = system('pathvar=$(cat path.txt); cp $pathvar .; bash ReStNeuMap_melodicrun.sh');
     
+% check that melodic has converged
+comp10 = false;
+comp20 = false;
+comp30 = false;
+compinf = false;
+
 if melodicstatus ~=0
-    close all
-    msgmelodic = 'An error occurred running melodic.';
-    error(msgmelodic)
+    
+    if ~exist('vmasksm4D_mask.ica', 'dir') && ...
+        ~exist('vmasksm4D_mask.ica+', 'dir') && ...
+        ~exist('vmasksm4D_mask.ica++', 'dir') && ...
+        ~exist('vmasksm4D_mask.ica+++', 'dir') && ...
+            close all    
+            msgmelodic = 'An error occurred running melodic.';
+            error(msgmelodic)
+            
+    end
+    
 end
+    
+if exist('./vmasksm4D_mask.ica/melodic_IC.nii.gz','file') > 0  
+    comp10 = true;
+else
+    warning('Melodic run for 10 components did not converge!')
+end
+
+if exist('./vmasksm4D_mask.ica+/melodic_IC.nii.gz','file') > 0  
+    comp20 = true;
+else
+    warning('Melodic run for 20 components did not converge!')
+end
+
+if exist('./vmasksm4D_mask.ica++/melodic_IC.nii.gz','file') > 0  
+    comp30 = true;
+else
+    warning('Melodic run for 30 components did not converge!')
+end
+
+if exist('./vmasksm4D_mask.ica+++/melodic_IC.nii.gz','file') > 0  
+    compinf = true;
+else
+    warning('Melodic run in free modality did not converge!')
+end
+
+if ~any([comp10, comp20, comp30, compinf])
+    close all    
+    error('melodic has run, but it did not converge for any component set.')
+end    
+    
+
+
+exitstatus.comp10 = comp10;
+exitstatus.comp20 = comp20;
+exitstatus.comp30 = comp30;
+exitstatus.compinf = compinf;
 
 close(fwaitb)
 end
