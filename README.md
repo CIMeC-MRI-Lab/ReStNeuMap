@@ -46,6 +46,8 @@ Our software uses and also provides functions from the following freely availabl
 ### 1.2 Disclaimer
 This software is made available to facilitate and promote use of resting-state fMRI data for research. This software is supplied as is. No formal quality assurance checks were made on the software other than those described in the original publication (Zacà  et al., JNS, 2018), and no formal support or maintenance is provided or implied. 
 
+This software has been optimized for resting-state functional MRI data with a TR of 2600 ms. If the user wuold like to fit the process for its own dataset with a different TR, this parameter can be modified at line 30 of filtering_sept.m in the ReStNeuMap/ReStNeuMap_files/pipelines folder.
+
 ### 1.3 Tool Structure
 This tool reads two input datasets (anatomical T1 MRI and resting state fMRI, both in dicom format) and computes the visual, motor and language resting state networks, together with quality assurance metrics of the input data. For more details see Zacà et al., J. Neurosurg. 2018.
 
