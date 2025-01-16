@@ -1,0 +1,5 @@
+future
+matplotlib==2.2.0
+numpy==1.14.0
+pandas==0.23.0
+seaborn==0.9.0

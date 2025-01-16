@@ -1,0 +1,7 @@
+## Please change here setup variables before running ReStNeuMap
+##
+## Set SPM version and name here
+spmVersion: spm12
+fslPath: /usr/local/fsl
+
+
