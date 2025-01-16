@@ -1,0 +1,88 @@
+
+ReStNeuMap expected output files list:
+
+------------------- ProcessDir:
+
+- smmaskdetfilt4D.nii.gz:.......................preprocessing output;
+- lowpassfilteredAROMA.nii.gz:..................preprocessing output after band-pass filtering;
+- sanon-*-T1.nii.gz:............................patient’s reoriented T1;
+- skullstrippedT1.nii.gz........................patient's skull-stripped T1;
+- DMN:..........................................Folder containing all DMN files;
+------ rDMN.txt:................................cross-correlation values for each independent component - DMN;
+------ topDMN1.png:.............................top 1 DMN network component in subject space;
+------ topDMN2.png:.............................top 2 DMN network component in subject space;
+------ topDMN3.png:.............................top 3 DMN network component in subject space;
+------ DMN1.nii.gz:.............................top 1 DMN network component in subject space;
+------ DMN2.nii.gz:.............................top 2 DMN network component in subject space;
+------ DMN3.nii.gz..............................top 3 DMN network component in subject space;
+------ DMN_template.nii.gz......................DMN network template in patient’s space at resting-state image resolution;
+------ DMN_template.png:........................DMN network template overlaid to T1 image in subject space;
+- FPN..........................................:Folder containing all FPN files;
+------ rFPN.txt:................................cross-correlation values for each independent component - FPN;
+------ topFPN1.png:.............................top 1 FPN network component in subject space;
+------ topFPN2.png:.............................top 2 FPN network component in subject space;
+------ topFPN3.png:.............................top 3 FPN network component in subject space;
+------ FPN1.nii.gz:.............................top 1 FPN network component in subject space;
+------ FPN2.nii.gz:.............................top 2 FPN network component in subject space;
+------ FPN3.nii.gz:.............................top 3 FPN network component in subject space;
+------ FPN_template.nii.gz:.....................FPN network template in patient’s space at resting-state image resolution;
+------ FPN_template.png:........................FPN network template overlaid to T1 image in subject space;
+- Language:.....................................Folder containing all Language files;
+------ Language.txt:............................cross-correlation values for each independent component - Language;
+------ topLanguage1.png:........................top 1 language network component in subject space;
+------ topLanguage2.png:........................top 2 language network component in subject space;
+------ topLanguage3.png..........................top 3 language network component in subject space;
+------ Language1.nii.gz:........................top 1 language network component in subject space;
+------ Language2.nii.gz:........................top 2 language network component in subject space;
+------ Language3.nii.gz:........................top 3 language network component in subject space;
+------ Language_template.nii.gz:................language network template in patient’s space at resting-state image resolution;
+------ Language_template.png:...................language network template overlaid to T1 image in subject space;
+- Prim_Visual:..................................Folder containing all Primary Visual files;
+------ rPrim_Visual.txt:........................cross-correlation values for each independent component - Primary Visual;
+------ top1Prim_Visual.png:.....................top 1 Prim_Visual network component in subject space;
+------ top2Prim_Visual.png:.....................top 2 Prim_Visual network component in subject space;
+------ top3Prim_Visual.png:.....................top 3 Prim_Visual network component in subject space;
+------ Prim_Visual1.nii.gz:.....................top 1 Prim_Visual network component in subject space;
+------ Prim_Visual2.nii.gz:.....................top 2 Prim_Visual network component in subject space;
+------ Prim_Visual3.nii.gz:.....................top 3 Prim_Visual network component in subject space;
+------ Prim_Visual_template.nii.gz:.............prim_Visual network template in patient’s space at resting-state image resolution;
+------ Prim_Visual_template.png:................prim_Visual network template overlaid to T1 image in subject space
+- Sensorimotor:.................................Folder containing all Sensorimotor files;
+------ rSensorimotor.txt:.......................cross-correlation values for each independent component - Sensorimotor;
+------ top1Sensorimotor.png:....................top 1 Sensorimotor network component in subject space;
+------ top2Sensorimotor.png:....................top 2 Sensorimotor network component in subject space;
+------ top3Sensorimotor.png:....................top 3 Sensorimotor network component in subject space;
+------ Sensorimotor1.nii.gz:....................top 1 Sensorimotor network component in subject space;
+------ Sensorimotor2.nii.gz:....................top 2 Sensorimotor network component in subject space;
+------ Sensorimotor3.nii.gz:....................top 3 Sensorimotor network component in subject space;
+------ Sensorimotor_template.nii.gz:............Sensorimotor network template in patient’s space at resting-state image resolution;
+------ Sensorimotor_template.png:...............Sensorimotor network template overlaid to T1 image in subject space.
+- SAN:..........................................Folder containing all Speech Arrest files;
+------ rSAN.txt:................................cross-correlation values for each independent component - Speech Arrest;
+------ top1SAN.png:.............................top 1 SAN network component in subject space;
+------ top2SAN.png:.............................top 2 SAN network component in subject space;
+------ top3SAN.png:.............................top 3 SAN network component in subject space;
+------ SAN1.nii.gz:.............................top 1 SAN network component in subject space;
+------ SAN2.nii.gz:.............................top 2 SAN network component in subject space;
+------ SAN3.nii.gz:.............................top 3 SAN network component in subject space;
+------ SAN_template.nii:........................SAN network template in patient’s space at resting-state image resolution;
+------ SAN_template.png:........................SAN network template overlaid to T1 image in subject space;
+- Visuospatial:.................................Folder containing all Visuospatial files;
+------ rVisuospatial.txt:.......................cross-correlation values for each independent component - Visuospatial;
+------ top1Visuospatial.png:....................top 1 Visuospatial network component in subject space;
+------ top2Visuospatial.png:....................top 2 Visuospatial network component in subject space;
+------ top3Visuospatial.png:....................top 3 Visuospatial network component in subject space;
+------ Visuospatial1.nii.gz:....................top 1 Visuospatial network component in subject space;
+------ Visuospatial2.nii.gz:....................top 2 Visuospatial network component in subject space;
+------ Visuospatial3.nii.gz:....................top 3 Visuospatial network component in subject space;
+------ Visuospatial_template.nii.gz:............Visuospatial network template in patient’s space at resting-state image resolution;
+------ Visuospatial_template.png:...............Visuospatial network template overlaid to T1 image in subject space;
+
+------------------- QualityAssuranceMetrics.tar.gz:
+All files for quality assurance.
+
+------------------- ICA_AROMA.tar.gz:
+Output files for ICA_AROMA denoising.
+
+------------------- rawdata.tar.gz:
+DICOM files of functional resting-state data.
