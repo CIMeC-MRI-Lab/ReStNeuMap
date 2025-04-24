@@ -89,7 +89,7 @@ ReStNeuMap needs:
 
 ### 2.2. Installation steps
 To install ReStNeuMap please follow the following steps:
-1. Download ReStNeuMap from the following webpage: https://r.unitn.it/en/cimec/mri/tools
+1. Download the ReStNeuMap_v2 folder from the container (https://github.com/CIMeC-MRI-Lab/ReStNeuMap) 
 2. Extract the downloaded .zip file, open matlab and add to your matlab path the ReStNeuMap_files folder with its subfolders. You can find the ReStNeuMap_files folder within the extracted ReStNeuMap_v2 folder. To do so, browse to the ReStNeuMap_files folder in matlab's 'Current Folder' panel, right click on the ReStNeuMap_files folder, and select Add to Path > Selected Folders and Subfolders.
 3. Add with subfolders your spm12 directory to your matlab path as in the previous step.
 4. For a guide on how to run ReStNeuMap, see the ReStNeuMap_tutorial.pdf tutorial file distributed with it.
