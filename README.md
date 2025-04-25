@@ -57,7 +57,6 @@ The authors disclaim any and all liability for damages of any kind arising from 
 ### 1.3 Tool Structure
 This tool reads two input datasets (anatomical T1 MRI and resting state fMRI, both in dicom format) and computes the visual, motor and language resting state networks, as well as the Default Mode, frontoparietal and visuospatial networks, together with quality assurance metrics of the input data. For more details see Moretto et al., Neurosurgery, 2024. 
  
-ReStNeuMap is accompanied by an anonymized sample MRI dataset (input dicoms) together with the results derived by the use of this software. This allows users to verify their own results on the same input data after installation.
 The package we distribute is composed by:
 - ReStNeuMap_v2, a folder containing all ReStNeuMap scripts, including the ReStNeuMapNetworkTemplates folder which contains resting-state network templates. ICA-AROMA (Pruim RHR et al. 2015), implemented for Python3, is provided within the “packages” folder.
 - Documentation in the form of this README file and a tutorial.
